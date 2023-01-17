@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/juliana/Transferências/Juliana/Flutter-projects/jogo_da_velha/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-ka/values-ka.xml",
+            "outputFile": "/home/juliana/Transferências/jogo_da_velha_ia/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-ka/values-ka.xml",
             "map": [
                 {
                     "source": "/home/juliana/.gradle/caches/transforms-3/acbce933e4b464a5224ed377a62db1f5/transformed/core-1.6.0/res/values-ka/values-ka.xml",

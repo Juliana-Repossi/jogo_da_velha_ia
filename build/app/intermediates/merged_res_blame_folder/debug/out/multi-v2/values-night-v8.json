@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/juliana/Transferências/Juliana/Flutter-projects/jogo_da_velha/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
+            "outputFile": "/home/juliana/Transferências/jogo_da_velha_ia/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/home/juliana/Transferências/Juliana/Flutter-projects/jogo_da_velha/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/home/juliana/Transferências/jogo_da_velha_ia/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
