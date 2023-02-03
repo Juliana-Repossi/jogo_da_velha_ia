@@ -94,6 +94,26 @@ class EstadoPagInicial extends State<PaginaInicial> {
         mensagemDeuVelha();
       }
       ////////////////// FALTA ADICIONAR IA AQUI !///////////////////////////
+      else {
+        setState(() {
+          controlador.fazerUmaJogadaIA();
+        });
+        vencedor = controlador.checarVencedor();
+
+        if (vencedor == Ganhador.none) {
+          if (controlador.fimJogo()) {
+            mensagemDeuVelha();
+          }
+        } else {
+          //há um ganhador
+          if (vencedor == Ganhador.jogador1) {
+            mensagemVitoria(SIMBOLO_JOGADOR1);
+          } else {
+            //Jogador 2 venceu
+            mensagemVitoria(SIMBOLO_JOGADOR2);
+          }
+        }
+      }
     } else {
       //há um ganhador
       if (vencedor == Ganhador.jogador1) {
