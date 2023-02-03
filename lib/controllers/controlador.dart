@@ -81,7 +81,7 @@ class Jogo {
         // Is the spot available?
         if (_board[i][j] == '') {
           _board[i][j] = _ai;
-          int score = minimax(_board, 0, false);
+          int score = _minimax(_board, 0, false);
           _board[i][j] = '';
           if (score < bestScore) {
             bestScore = score;
@@ -94,7 +94,7 @@ class Jogo {
     return (move['i']! * 3) + move['j']!;
   }
 
-  int minimax(List<List<String>> board, int depth, bool isMaximizing) {
+  int _minimax(List<List<String>> board, int depth, bool isMaximizing) {
     String result = checkWinner();
     if (result != 'null') {
       return _scores[result]!;
@@ -107,7 +107,7 @@ class Jogo {
           // Is the spot available?
           if (board[i][j] == '') {
             board[i][j] = _ai;
-            int score = minimax(board, depth + 1, false).toInt();
+            int score = _minimax(board, depth + 1, false).toInt();
             board[i][j] = '';
             score > bestScore ? bestScore = score : bestScore = bestScore;
           }
@@ -121,7 +121,7 @@ class Jogo {
           // Is the spot available?
           if (board[i][j] == '') {
             board[i][j] = _human;
-            int score = minimax(board, depth + 1, true);
+            int score = _minimax(board, depth + 1, true);
             board[i][j] = '';
             score < bestScore ? bestScore = score : bestScore = bestScore;
           }
@@ -153,7 +153,7 @@ class Jogo {
   }
 
   // Considerando que celulaId é de 1 a 9
-  void updateBoard(String player, int celulaId) {
+  void _updateBoard(String player, int celulaId) {
     print("CelulaID: ");
     print(celulaId);
     int i = (celulaId - 1) ~/ 3;
@@ -171,7 +171,7 @@ class Jogo {
       celula.receberJogada(SIMBOLO_JOGADOR1, COR_JOGADOR1);
       //adiciono na lista de jogadas do respectivo jogador
       movJogador1.add(celula.id);
-      updateBoard(_human, celula.id);
+      _updateBoard(_human, celula.id);
       //vez ao proximo jogador
       jogadorDaVez = Jogador.jogador2;
     } else {
@@ -179,7 +179,7 @@ class Jogo {
       celula.receberJogada(SIMBOLO_JOGADOR2, COR_JOGADOR2);
       //adiciono na lista de jogadas do respectivo jogador
       movJogador2.add(celula.id);
-      updateBoard(_ai, celula.id);
+      _updateBoard(_ai, celula.id);
       //vez ao proximo jogador
       jogadorDaVez = Jogador.jogador1;
     }
@@ -194,7 +194,7 @@ class Jogo {
       final iaCelula = tabuleiro[melhorJogada];
       iaCelula.receberJogada(SIMBOLO_JOGADOR2, COR_JOGADOR2);
       movJogador2.add(iaCelula.id);
-      updateBoard(_ai, iaCelula.id);
+      _updateBoard(_ai, iaCelula.id);
 
       jogadorDaVez = Jogador.jogador1;
     }
