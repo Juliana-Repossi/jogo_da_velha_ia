@@ -81,7 +81,7 @@ class Jogo {
         // Is the spot available?
         if (_board[i][j] == '') {
           _board[i][j] = _ai;
-          int score = _minimax(_board, 0, false);
+          int score = _minimax(_board, 0, true);
           _board[i][j] = '';
           if (score < bestScore) {
             bestScore = score;
@@ -106,8 +106,8 @@ class Jogo {
         for (int j = 0; j < 3; j++) {
           // Is the spot available?
           if (board[i][j] == '') {
-            board[i][j] = _ai;
-            int score = _minimax(board, depth + 1, false).toInt();
+            board[i][j] = _human;
+            int score = _minimax(board, depth + 1, false);
             board[i][j] = '';
             score > bestScore ? bestScore = score : bestScore = bestScore;
           }
@@ -120,7 +120,7 @@ class Jogo {
         for (int j = 0; j < 3; j++) {
           // Is the spot available?
           if (board[i][j] == '') {
-            board[i][j] = _human;
+            board[i][j] = _ai;
             int score = _minimax(board, depth + 1, true);
             board[i][j] = '';
             score < bestScore ? bestScore = score : bestScore = bestScore;
@@ -154,8 +154,6 @@ class Jogo {
 
   // Considerando que celulaId é de 1 a 9
   void _updateBoard(String player, int celulaId) {
-    print("CelulaID: ");
-    print(celulaId);
     int i = (celulaId - 1) ~/ 3;
     int j = (celulaId - 1) % 3;
 
@@ -163,7 +161,6 @@ class Jogo {
   }
 
   void fazerUmaJogada(index) {
-    print('Jogada HUMANO index = $index');
     final celula = tabuleiro[index];
 
     if (jogadorDaVez == Jogador.jogador1) {
@@ -187,9 +184,7 @@ class Jogo {
 
   void fazerUmaJogadaIA() {
     if (modoUmJogador == true && jogadorDaVez == Jogador.jogador2) {
-      print('ESTADO DO TABULEIRO PARA IA: $_board');
       int melhorJogada = _bestMove();
-      print('Melhor Jogada IA: $melhorJogada');
 
       final iaCelula = tabuleiro[melhorJogada];
       iaCelula.receberJogada(SIMBOLO_JOGADOR2, COR_JOGADOR2);
