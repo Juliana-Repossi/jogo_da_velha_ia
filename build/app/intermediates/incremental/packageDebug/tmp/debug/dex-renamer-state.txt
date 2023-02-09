@@ -1,4 +1,0 @@
-#Sat Feb 04 08:52:48 BRT 2023
-base.0=D\:\\Codes\\jogo_da_velha_ia\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
-renamed.0=classes.dex
-path.0=classes.dex

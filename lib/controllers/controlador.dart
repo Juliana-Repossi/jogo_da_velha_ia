@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:jogo_da_velha/models/celulas.dart';
 import 'package:jogo_da_velha/enums/jogadores.dart';
 import 'package:jogo_da_velha/core/constantes.dart';
@@ -18,8 +16,8 @@ class Jogo {
   Jogador? jogadorDaVez;
   bool? modoUmJogador;
 
-  String _ai = 'O';
-  String _human = 'X';
+  final String _ai = 'O';
+  final String _human = 'X';
 
   final Map<String, int> _scores = {'X': 1, 'O': -1, 'tie': 0};
 
