@@ -93,7 +93,6 @@ class EstadoPagInicial extends State<PaginaInicial> {
       if (controlador.fimJogo()) {
         mensagemDeuVelha();
       }
-      ////////////////// FALTA ADICIONAR IA AQUI !///////////////////////////
       else {
         setState(() {
           controlador.fazerUmaJogadaIA();
